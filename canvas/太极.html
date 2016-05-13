@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>太极</title>
+	<style type="text/css">
+		canvas{background: gray}
+	</style>
+	
+</head>
+<body>
+<canvas id="mycanvas" height="800" width="800">
+	该浏览器不支持该格式
+</canvas>
+	<script type="text/javascript">
+		var mycanvas=document.getElementById('mycanvas')
+		var c=mycanvas.getContext('2d')
+		g1=c.createLinearGradient(400,100,400,500)
+		g1.addColorStop(0,"black")
+		g1.addColorStop(1,"white")
+		g2=c.createLinearGradient(400,100,400,500)
+		g2.addColorStop(0,"white")
+		g2.addColorStop(1,"black")
+		g3=c.createRadialGradient(400,400,1,400,400,50)
+		g3.addColorStop(0,"black")
+		g3.addColorStop(1,"white")
+		g4=c.createRadialGradient(400,200,1,400,200,50)
+		g4.addColorStop(0,"white")
+		g4.addColorStop(1,"black")
+		c.fillStyle=g1;
+		c.fillStyle="black"
+		c.arc(400,300,200,Math.PI/2,Math.PI*1.5,false);
+		c.arc(400,200,100,Math.PI*1.5,Math.PI/2,true)
+		c.arc(400,400,100,Math.PI/2,Math.PI*1.5,true)
+		c.fill()
+		c.beginPath();
+		c.fillStyle=g2;
+		c.fillStyle="white";
+		c.arc(400,300,200,Math.PI/2,Math.PI*1.5,true);
+		c.arc(400,400,100,Math.PI*1.5,Math.PI/2,false)
+		c.arc(400,200,100,Math.PI/2,Math.PI*1.5,false)
+		c.fill();
+		c.beginPath()
+		c.fillStyle=g4;
+		c.arc(400,200,50,0,Math.PI*2)
+		c.fill()
+		c.beginPath()
+		c.fillStyle=g3;
+		c.arc(400,400,50,0,Math.PI*2)
+		c.fill()
+	</script>
+</body>
+</html>

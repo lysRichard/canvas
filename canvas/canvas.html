@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		/*canvas{
+			border:1px solid #000;
+			background: #e8e8e8;
+		}*/
+	</style>
+</head>
+<body>
+	<canvas id="mycanvas" height="500" width="500"></canvas>
+	<script type="text/javascript">
+		// var canvas=document.getElementById('mycanvas');
+		// var ctx=canvas.getContext('2d');
+		// ctx.fillRect(20,20,200,200);
+		// ctx.clearRect(40,40,100,100);
+		// ctx.strokeRect(50,50,60,60);
+		// ctx.beginPath();
+		// ctx.arc(75,75,50,0,Math.PI*2,true);
+		// ctx.moveTo(110,75);
+		// ctx.arc(75,75,35,0,Math.PI,false);
+		// ctx.moveTo(65,65);
+		// ctx.arc(60,65,5,0,Math.PI*2,true);
+		// ctx.moveTo(95,65);
+		// ctx.arc(90,65,5,0,Math.PI*2,true)
+		// ctx.stroke();
+		// ctx.beginPath();
+		// ctx.fillStyle="black"
+		// ctx.arc(200,200,200,Math.PI/2,Math.PI*1.5,true);
+		// ctx.arc(200,100,100,Math.PI/2,Math.PI*1.5,false);
+		// ctx.arc(200,300,100,Math.PI*1.5,Math.PI/2,false)
+		// ctx.fill();
+		
+		// ctx.beginPath();
+		// ctx.fillStyle="white";
+		// ctx.arc(200,200,200,Math.PI*1.5,Math.PI/2,true);
+		// ctx.arc(200,100,100,Math.PI/2,Math.PI*1.5,false);
+		// ctx.arc(200,300,100,Math.PI*1.5,Math.PI/2,false)
+		// ctx.fill();
+		// ctx.beginPath();
+		// ctx.fillStyle="white";
+		// ctx.arc(200,100,50,0,Math.PI*2,true);
+		// ctx.fill();
+		// ctx.beginPath();
+		// ctx.fillStyle="black";
+		// ctx.arc(200,300,50,0,Math.PI*2,true);
+		// ctx.fill();
+		var sun = new Image();
+		var moon = new Image();
+		var earth = new Image();
+		function init(){
+		  sun.src = 'https://mdn.mozillademos.org/files/1456/Canvas_sun.png';
+		  moon.src = 'https://mdn.mozillademos.org/files/1443/Canvas_moon.png';
+		  earth.src = 'https://mdn.mozillademos.org/files/1429/Canvas_earth.png';
+		  window.requestAnimationFrame(draw);
+		}
+
+		function draw() {
+		  var ctx = document.getElementById('canvas').getContext('2d');
+
+		  ctx.globalCompositeOperation = 'destination-over';
+		  ctx.clearRect(0,0,300,300); // clear canvas
+
+		  ctx.fillStyle = 'rgba(0,0,0,0.4)';
+		  ctx.strokeStyle = 'rgba(0,153,255,0.4)';
+		  ctx.save();
+		  ctx.translate(150,150);
+
+		  // Earth
+		  var time = new Date();
+		  ctx.rotate( ((2*Math.PI)/60)*time.getSeconds() + ((2*Math.PI)/60000)*time.getMilliseconds() );
+		  ctx.translate(105,0);
+		  ctx.fillRect(0,-12,50,24); // Shadow
+		  ctx.drawImage(earth,-12,-12);
+
+		  // Moon
+		  ctx.save();
+		  ctx.rotate( ((2*Math.PI)/6)*time.getSeconds() + ((2*Math.PI)/6000)*time.getMilliseconds() );
+		  ctx.translate(0,28.5);
+		  ctx.drawImage(moon,-3.5,-3.5);
+		  ctx.restore();
+
+		  ctx.restore();
+		  
+		  ctx.beginPath();
+		  ctx.arc(150,150,105,0,Math.PI*2,false); // Earth orbit
+		  ctx.stroke();
+		 
+		  ctx.drawImage(sun,0,0,300,300);
+
+		  window.requestAnimationFrame(draw);
+		}
+
+			init();
+	</script>
+</body>
+</html>

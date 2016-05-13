@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas</title>
+	<style type="text/css">
+		canvas{background: #A9A9A0}
+	</style>
+</head>
+<body>
+	<canvas id="mycanvas" height="600" width="600" >
+		该浏览器无法显示canvas控件
+	</canvas>
+	<script type="text/javascript">
+
+		var canvas=document.getElementById('mycanvas'); 
+		var c=canvas.getContext('2d');
+		// c.lineWidth="10";
+		// c.strokeStyle="red";
+		// c.fillStyle="green";
+		//  c.moveTo(50,50);
+		//  c.lineTo(200,50);
+		//  c.lineTo(200,200);
+		//  c.lineTo(50,200);
+		//  c.closePath();
+		//  c.stroke();
+		//  c.beginPath();
+		//  c.moveTo(100,100);
+		//  c.lineTo(100,150);
+		//  c.lineTo(150,150);
+		//  c.closePath();
+		//  c.fill();
+		//  c.stroke();
+		//  c.beginPath();
+		//  c.rect(300,300,100,100);
+		//  c.fill();
+		//  c.stroke();
+		//  c.beginPath();
+		//  c.strokeRect(400,400,100,100);
+		//  c.beginPath();
+		//  c.fillRect(500,500,100,100);
+ 		c.lineWidth="5";
+ 		c.fillStyle="blue";
+ 		// c.arc(100,100,50,0,360);
+ 		// c.closePath();
+ 		// c.stroke();
+ 		// c.beginPath();
+ 		// c.arc(200,200,50,0,Math.PI/3);
+ 		// c.stroke();
+ 		// c.beginPath();
+ 		// c.arc(400,400,50,0,360);
+ 		// c.fill();
+ 		// c.beginPath();
+ 		// c.arc(300,300,50,0,360);
+ 		// c.fill()
+ 		// c.stroke()
+ 		c.moveTo(200,200)
+ 		c.arc(200,200,200,Math.PI*7/6,Math.PI*1.5,false)
+ 		c.fill()
+ 		c.beginPath()
+ 		c.moveTo(200,200)
+ 		c.arc(200,200,200,Math.PI*11/6,Math.PI*1.5,true)
+ 		c.fill()
+ 		c.beginPath()
+ 		c.fillStyle="#A9A9A0";
+ 		c.moveTo(200,200)
+ 		c.arc(200,200,100,Math.PI*7/6,Math.PI*1.5,false)
+ 		c.fill()
+ 		c.beginPath()
+ 		c.moveTo(200,200)
+ 		c.arc(200,200,100,Math.PI*11/6,Math.PI*1.5,true)
+ 		c.fill()
+ 		c.beginPath();
+ 		c.font="40px 隶书";
+ 		c.strokeText("纵",180,50)
+ 		c.fillText("横",180,100)
+
+	</script>
+</body>
+</html>

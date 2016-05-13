@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body onload="draw()">
+	<canvas id="mycanvas" width="400" height="300" style="border: 1px solid black"></canvas>
+	<script>
+	// function draw(x,y){
+
+	// 	var c=document.getElementById('mycanvas');//绘制圆形
+	// 	var cxt=c.getContext("2d");
+	// 	cxt.fillStyle="rgb(20,"+x+","+y+")";
+	// 	cxt.beginPath();
+	// 	cxt.arc(x,y,10,0,Math.PI*2,true);
+	// 	cxt.closePath();
+	// 	cxt.fill();
+	// }
+	// 	for(var i=0;i<=15;i++)
+	// 	{	
+	// 		for(var j=0;j<=15;j++)
+	// 		{
+	// 			draw(12+25*i,12+25*j);//不能用浮点数
+	// 		}
+	// 	}
+	function draw(){
+		var c=document.getElementById('mycanvas');
+		var cxt=c.getContext("2d");
+		for(var i=0;i<12;i++)
+		{
+			for(var j=0;j<24;j++)
+			{
+				cxt.fillStyle="rgb(240,"+Math.floor(255-11.5*i)+","+Math.floor(255-11.5*j)+")";
+				cxt.beginPath();
+				cxt.arc(12.5+25*j,12.5+25*i,10,0,Math.PI*2,true);
+				cxt.closePath();
+				cxt.fill();
+			}
+		}
+		
+	}
+	
+	</script>
+</body>
+</html>

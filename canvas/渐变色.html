@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>渐变色</title>
+	<style type="text/css">
+		canvas{background: #A9A9A0}
+	</style>
+</head>
+<body>
+	<canvas id="mycanvas" height="600" width="600" >
+		该浏览器无法显示canvas控件
+	</canvas>
+	<script type="text/javascript">
+
+		var canvas=document.getElementById('mycanvas'); 
+		var c=canvas.getContext('2d');
+		// g=c.createLinearGradient(50,50,500,50);
+		g=c.createRadialGradient(300,300,0,300,300,200);  //扩散渐变，同心圆
+	 	g.addColorStop(1,"#000000"); 						//渐变颜色
+	 	g.addColorStop(0.5,"red")
+	 	g.addColorStop(0,"#FFFFFF");
+	 	c.fillStyle=g;
+	 	c.arc(300,300,200,0,Math.PI*2,false); 			//画圆
+	 	c.fill();
+		</script>
+</body>
+</html>
